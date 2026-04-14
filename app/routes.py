@@ -60,5 +60,5 @@ def get_weather():
         return jsonify({'error': 'Request timed out'}), 504
     except requests.exceptions.ConnectionError:
         return jsonify({'error': 'Connection error'}), 503
-    except Exception as e:
+    except Exception :
         return jsonify({'error': 'Internal server error'}), 500
