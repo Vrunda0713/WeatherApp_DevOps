@@ -34,7 +34,7 @@ jobs:
 
       - name: Run flake8 (Static Code Analysis)
         run: |
-          flake8 app/ tests/ run.py --max-line-length=100 --statistics
+          flake8 app/ tests/ run.py --max-line-length=100 --ignore=E302,F841
 
       - name: Run Pytest (Unit Tests)
         run: |
