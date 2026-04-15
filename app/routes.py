@@ -9,11 +9,9 @@ API_KEY = os.environ.get('OPENWEATHER_API_KEY', '292d22760dfa4b5dd0dc99af0d69adf
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 
-
 @main.route('/')
 def index():
     return render_template('index.html')
-
 
 
 @main.route('/weather', methods=['GET'])
