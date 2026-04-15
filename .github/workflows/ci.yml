@@ -67,13 +67,22 @@ jobs:
           docker stop weather-test
 
   # ── Job 3: Deploy to Render ───────────────────────────────────
-  deploy:
-    name: Deploy to Render (Staging)
-    runs-on: ubuntu-latest
-    needs: docker
-    if: github.ref == 'refs/heads/main'
+ deploy:
+  name: Deploy to Render (Staging)
+  runs-on: ubuntu-latest
+  needs: docker
+  if: github.ref == 'refs/heads/main'
 
-    steps:
-      - name: Trigger Render Deploy
-        run: |
-          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+  steps:
+    - name: Trigger Render Deployment
+      run: |
+        echo "🚀 Triggering deployment..."
+        
+        response=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}")
+        
+        if [ "$response" -ne 200 ]; then
+          echo "❌ Deployment failed with status $response"
+          exit 1
+        fi
+        
+        echo "✅ Deployment triggered successfully!"
