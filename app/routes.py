@@ -2,15 +2,18 @@ from flask import Blueprint, render_template, request, jsonify
 import requests
 import os
 
+
 main = Blueprint('main', __name__)
 
 API_KEY = os.environ.get('OPENWEATHER_API_KEY', '292d22760dfa4b5dd0dc99af0d69adf0')
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 
+
 @main.route('/')
 def index():
     return render_template('index.html')
+
 
 
 @main.route('/weather', methods=['GET'])
@@ -58,7 +61,9 @@ def get_weather():
 
     except requests.exceptions.Timeout:
         return jsonify({'error': 'Request timed out'}), 504
+
     except requests.exceptions.ConnectionError:
         return jsonify({'error': 'Connection error'}), 503
+
     except Exception:
         return jsonify({'error': 'Internal server error'}), 500
