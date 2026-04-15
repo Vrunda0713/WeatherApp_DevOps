@@ -36,9 +36,9 @@ jobs:
         run: |
           flake8 app/ tests/ run.py --max-line-length=100 --ignore=E302,F841
 
-      - name: Run Pytest (Unit Tests)
+      - name: Run Tests with Coverage
         run: |
-          pytest tests/ -v --tb=short
+          pytest --cov=app --cov-fail-under=50 --cov-report=term --cov-report=xml
         env:
           PYTHONPATH: .
 
