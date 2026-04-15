@@ -1,3 +1,12 @@
+![CI](https://github.com/Vrunda0713/WeatherApp_DevOps/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://img.shields.io/badge/coverage-92%25-brightgreen)
+![Live](https://img.shields.io/badge/Live-Deployed-success)
+
+
+## 🚀 Live Application
+
+🌐 https://weatherapp-devops.onrender.com
+
 #  Nimbus — Weather Dashboard
 
 > A DevOps mini project demonstrating a complete CI/CD pipeline with a real-world Flask application.
@@ -45,6 +54,14 @@ Docker Image Build & Verify
      ↓
 Deploy to Render (on main branch)
 ```
+
+## 📊 Code Coverage
+
+- Current Coverage: **92%**
+- Measured using `pytest-cov`
+- Enforced in CI pipeline
+
+> Deployment only proceeds if tests pass and coverage meets threshold.
 
 ---
 
