@@ -3,7 +3,7 @@
 > A DevOps mini project demonstrating a complete CI/CD pipeline with a real-world Flask application.
 
 Course: 20PECE 601A — DevOps Fundamentals | Sem II, 2025-2026  
-Institute: Cummins College of Engineering for Women, Pune
+Institute: Cummins College of Engineering for Women, Pune.
 
 ---
 
