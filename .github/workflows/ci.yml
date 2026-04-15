@@ -67,7 +67,7 @@ jobs:
           docker stop weather-test
 
   # ── Job 3: Deploy to Render ───────────────────────────────────
- deploy:
+  deploy:
     name: Deploy to Render (Staging)
     runs-on: ubuntu-latest
     needs: docker
