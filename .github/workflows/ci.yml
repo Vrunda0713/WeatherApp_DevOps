@@ -77,5 +77,12 @@ jobs:
       - name: Trigger Render Deployment
         run: |
           echo "🚀 Triggering deployment..."
+  
+          if [ -z "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" ]; then
+            echo "❌ Deploy hook URL not set"
+            exit 1
+          fi
+  
           curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+  
           echo "✅ Deployment triggered!"
